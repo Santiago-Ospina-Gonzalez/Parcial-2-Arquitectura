@@ -1,5 +1,5 @@
 {
-  "name": "angular-standalone-template",
+  "name": "microfrontend-users-angular",
   "version": "0.0.0",
   "scripts": {
     "start": "ng serve",
