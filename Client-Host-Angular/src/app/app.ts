@@ -43,6 +43,7 @@ export class App {
    *     size: 2
    *   },
    *   navLinks: [
+   *     { text: 'Médicos', url: '/doctors' },
    *     { text: 'Pacientes', url: '/patients' }
    *   ]
    * }
@@ -55,6 +56,7 @@ export class App {
       size: 2
     },
     navLinks: [
+      { text: 'Médicos', url: '/doctors' },
       { text: 'Pacientes', url: '/patients' },
       { text: 'Citas', url: '/appointments' }
     ]

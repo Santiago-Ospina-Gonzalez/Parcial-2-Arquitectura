@@ -13,10 +13,28 @@ import { loadRemoteModule } from '@angular-architects/module-federation';
  * - Rutas de navegación principales
  * - Redirección por defecto para rutas no existentes
  *
+ * @see {@link DoctorsPage}
  * @see {@link PatientsPage}
  */
 export const routes: Routes = [
 
+  /**
+   * Ruta de médicos.
+   *
+   * @remarks
+   * Renderiza el componente `DoctorsPage`, encargado
+   * de mostrar y gestionar el listado de médicos.
+   */
+  {
+        path: 'doctors',
+        loadComponent: () =>
+            loadRemoteModule({
+                type: 'module',
+                remoteEntry: 'http://localhost:4201/remoteEntry.js',
+                exposedModule: './DoctorsPage',
+        }).then(m => m.DoctorsPage),
+    },
+    
     {
         path: 'appointments',
         loadComponent: () =>
@@ -48,7 +66,7 @@ export const routes: Routes = [
    *
    * @remarks
    * Captura cualquier ruta no definida y redirige
-   * automáticamente a la ruta de pacientes.
+   * automáticamente a la ruta de médicos.
    */
-  { path: '**', redirectTo: 'patients' },
+  { path: '**', redirectTo: 'doctors' },
 ];
