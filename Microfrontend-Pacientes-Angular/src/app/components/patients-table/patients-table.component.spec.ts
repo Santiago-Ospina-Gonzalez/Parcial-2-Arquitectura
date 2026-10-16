@@ -45,9 +45,9 @@ describe('PatientsTableComponent', () => {
       const columns = row.queryAll(By.css('th, td'));
       const patient = component.patients[index];
       expect(columns[0].nativeElement.textContent.trim()).toBe(String(patient.id));
-      expect(columns[1].nativeElement.textContent.trim()).toBe(patient.name);
-      expect(columns[2].nativeElement.textContent.trim()).toBe(patient.document);
-      expect(columns[3].nativeElement.textContent.trim()).toBe(patient.phone);
+      expect(columns[1].nativeElement.textContent.trim()).toBe(patient.nombre);
+      expect(columns[2].nativeElement.textContent.trim()).toBe(patient.documento);
+      expect(columns[3].nativeElement.textContent.trim()).toBe(patient.telefono);
     });
   });
 });

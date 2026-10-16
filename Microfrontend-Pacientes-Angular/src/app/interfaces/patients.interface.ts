@@ -5,22 +5,21 @@
  * en la tabla o en cualquier componente de listado.
  *
  * @remarks
- * Cada paciente debe tener un `id` único, un `name` descriptivo,
- * una `category` válida y un `price` en pesos colombianos.
+ * Cada paciente debe tener un `id` único, nombre, documento y teléfono.
  *
  * @example
  * ```ts
  * const paciente: Patient = {
  *   id: 1,
- *   name: 'Leche entera',
- *   category: 'Lacteos',
- *   price: 4500
+ *   nombre: 'Ana Pérez',
+ *   documento: '1001',
+ *   telefono: '3001001001'
  * };
  * ```
  */
 export interface Patient {
   id: number;
-  name: string;
-  document: string;
-  phone: string;
+  nombre: string;
+  documento: string;
+  telefono: string;
 }

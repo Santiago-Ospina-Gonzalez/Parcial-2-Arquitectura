@@ -75,7 +75,7 @@ describe('PatientsService', () => {
     });
 
     it('debería registrar un paciente', () => {
-      const patient = { name: 'Laura', document: '1003', phone: '3001001003' };
+      const patient = { nombre: 'Laura', documento: '1003', telefono: '3001001003' };
       service.registerPatient(patient).subscribe();
       const req = httpMock.expectOne('http://localhost:3002/api/pacientes');
       expect(req.request.method).toBe('POST');
