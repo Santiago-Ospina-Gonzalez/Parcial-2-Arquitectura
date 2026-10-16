@@ -1,0 +1,25 @@
+<table class="table table-striped bappointment">
+	<thead>
+		<tr>
+			<th scope="col">Id</th>
+			<th scope="col">Nombre</th>
+			<th scope="col">Precio</th>
+			<th scope="col">Categoria</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (patient of patients; track patient) {
+			<tr>
+				<th scope="row">{{ patient.id }}</th>
+				<td>{{ patient.name }}</td>
+				<td>{{ patient.price | currency }}</td>
+				<td>
+					<dsb-badge-atom
+						[text]="patient.category"
+						[type]="categoryMap[patient.category]" >
+                    </dsb-badge-atom>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
