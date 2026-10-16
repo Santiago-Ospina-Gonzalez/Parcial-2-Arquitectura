@@ -1,7 +1,9 @@
 # Microservice de Citas
 
 Servicio Node.js en `http://localhost:3003`, organizado en dominio,
-presentación y configuración.
+aplicación (`src/application/usecases`), presentación y configuración.
+Los casos de listar, consultar por ID y agendar están implementados como
+clases independientes.
 
 ```powershell
 npm install

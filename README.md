@@ -66,7 +66,9 @@ publican Swagger en `/api/docs`; la API Spring Boot publica OpenAPI en
 
 Los microfrontends separan presentación, casos de uso, servicios de
 infraestructura e interfaces de dominio. Los microservicios Node separan
-dominio, presentación y configuración; el microservicio Spring separa
+dominio, aplicación (`src/application/usecases`), presentación y
+configuración; cada operación de negocio tiene su propio caso de uso. El
+microservicio Spring separa
 dominio, aplicación, infraestructura y presentación.
 
 El host no contiene lógica de negocio: únicamente configura navegación y

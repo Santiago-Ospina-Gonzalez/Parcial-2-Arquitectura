@@ -1,8 +1,14 @@
 import { Request, Response } from 'express';
 import { AppointmentsService } from './appointments.service';
+import { ListAppointmentsUseCase } from '../../../application/usecases/list-appointments.usecase';
+import { GetAppointmentByIdUseCase } from '../../../application/usecases/get-appointment-by-id.usecase';
+import { ScheduleAppointmentUseCase } from '../../../application/usecases/schedule-appointment.usecase';
 
 export class AppointmentsController {
   private readonly appointmentsService = new AppointmentsService();
+  private readonly listAppointments = new ListAppointmentsUseCase(this.appointmentsService);
+  private readonly getAppointmentByIdUseCase = new GetAppointmentByIdUseCase(this.appointmentsService);
+  private readonly scheduleAppointmentUseCase = new ScheduleAppointmentUseCase(this.appointmentsService);
 
   getAllAppointments = (req: Request, res: Response): void => {
     const countAppointments = Number(req.params['countAppointments']);
@@ -12,20 +18,20 @@ export class AppointmentsController {
       return;
     }
 
-    this.appointmentsService
-      .getAllAppointments(countAppointments)
+    this.listAppointments
+      .execute(countAppointments)
       .then((appointments) => res.status(200).json(appointments))
       .catch(() => res.status(500).json({ error: 'Internal Server error' }));
   };
 
   getAppointmentById = (req: Request, res: Response): void => {
-    this.appointmentsService.getAppointmentById(Number(req.params.id))
+    this.getAppointmentByIdUseCase.execute(Number(req.params.id))
       .then((appointment) => res.status(200).json(appointment))
       .catch(() => res.status(500).json({ error: 'Internal Server error' }));
   };
 
   scheduleAppointment = (req: Request, res: Response): void => {
-    this.appointmentsService.scheduleAppointment(req.body)
+    this.scheduleAppointmentUseCase.execute(req.body)
       .then((appointment) => res.status(201).json(appointment))
       .catch(() => res.status(500).json({ error: 'Internal Server error' }));
   };
