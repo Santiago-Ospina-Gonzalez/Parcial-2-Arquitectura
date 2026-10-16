@@ -1,0 +1,28 @@
+@switch(state){
+
+    @case('loading'){
+        <app-alert alertState="loading" text="Cargando Pacientes..." ></app-alert>
+    }
+
+    @case('error'){
+        <app-alert alertState="error" text="Error al Cargar los Pacientes" ></app-alert>
+    }
+
+    @case('success'){
+        <section class="container py-3">
+            <h2>Consultar paciente</h2>
+            <input class="form-control mb-2" type="number" placeholder="ID del paciente" [value]="patientId" (input)="patientId = $any($event.target).value">
+            <button class="btn btn-primary mb-3" type="button" (click)="findPatient()">Consultar por ID</button>
+            <h2>Registrar paciente</h2>
+            <div class="row g-2 mb-3">
+                <div class="col-md-4"><input class="form-control" placeholder="Nombre" [value]="patientName" (input)="patientName = $any($event.target).value"></div>
+                <div class="col-md-4"><input class="form-control" placeholder="Documento" [value]="patientDocument" (input)="patientDocument = $any($event.target).value"></div>
+                <div class="col-md-4"><input class="form-control" placeholder="Teléfono" [value]="patientPhone" (input)="patientPhone = $any($event.target).value"></div>
+            </div>
+            <button class="btn btn-success mb-3" type="button" (click)="savePatient()">Registrar paciente</button>
+            @if (actionMessage) { <p class="alert alert-secondary">{{ actionMessage }}</p> }
+        </section>
+        <app-patients-table [patients]="patients" ></app-patients-table>
+    }
+
+}
