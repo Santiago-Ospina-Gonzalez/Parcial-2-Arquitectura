@@ -1,16 +1,16 @@
 import { Patient } from "../interfaces/patients.interface";
 
-export const PRODUCTS_MOCK: Patient[] = [
+export const PATIENTS_MOCK: Patient[] = [
     {
         id: 1,
-        name: 'Leche entera',
-        category: 'Lacteos',
-        price: 4500,
+        name: 'Ana Pérez',
+        document: '1001',
+        phone: '3001001001',
     },
     {
         id: 2,
-        name: 'Manzana roja',
-        category: 'Frutas',
-        price: 3200,
+        name: 'Carlos Gómez',
+        document: '1002',
+        phone: '3001001002',
     }
 ];

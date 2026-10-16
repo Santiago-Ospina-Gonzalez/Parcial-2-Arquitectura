@@ -6,7 +6,7 @@ import { DoctorsRoutes } from "./modules/doctors/doctors.routes";
  *
  * @remarks
  * Proporciona un único punto de acceso a los endpoints
- * del backend, agrupando los módulos de médicos y patientos.
+ * del backend, agrupando los módulos de médicos y pacientes.
  *
  * @example
  * ```ts

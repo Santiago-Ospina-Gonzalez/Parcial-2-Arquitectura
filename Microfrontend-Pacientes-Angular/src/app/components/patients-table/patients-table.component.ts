@@ -3,14 +3,14 @@ import { Component, Input } from '@angular/core';
 import { Patient } from '../../interfaces/patients.interface';
 
 /**
- * Componente de tabla de patientos.
+ * Componente de tabla de pacientes.
  *
- * Se utiliza para mostrar un listado de patientos en una tabla,
+ * Se utiliza para mostrar un listado de pacientes en una tabla,
  * mostrando información como nombre, categoría, precio y un badge
- * visual que indica la categoría de cada patiento.
+ * visual que indica la categoría de cada paciente.
  *
  * @remarks
- * Este componente recibe los patientos desde un componente padre
+ * Este componente recibe los pacientes desde un componente padre
  * a través del Input `patients` y utiliza el mapeo `categoryMap`
  * para asignar colores a los badges según la categoría.
  *
@@ -29,15 +29,15 @@ import { Patient } from '../../interfaces/patients.interface';
 })
 export class PatientsTableComponent {
   /**
-   * Listado de patientos que se mostrarán en la tabla.
+   * Listado de pacientes que se mostrarán en la tabla.
    * @type {Patient[]}
    * @remarks
-   * Este Input permite pasar un array de patientos desde un componente padre,
-   * generalmente `ListPatientsComponent`. Cada patiento debe cumplir la interfaz `Patient`.
+   * Este Input permite pasar un array de pacientes desde un componente padre,
+   * generalmente `ListPatientsComponent`. Cada paciente debe cumplir la interfaz `Patient`.
    */
   @Input() patients: Patient[] = [];
   /**
-   * Mapeo de categorías de patientos a tipos de Badge.
+   * Mapeo de categorías de pacientes a tipos de Badge.
    * @type {Record<PatientCategory, BadgeType>}
    * @remarks
    * Se utiliza para asignar colores de badges a cada categoría:
@@ -46,7 +46,7 @@ export class PatientsTableComponent {
    * - 'Lacteos' → 'primary' (azul)
    * - 'Verduras' → 'success' (verde)
    *
-   * Esto permite que en la tabla cada patiento tenga un badge visual que indique su categoría
+   * Esto permite que en la tabla cada paciente tenga un badge visual que indique su categoría
    * de forma clara para el usuario.
    */
 }

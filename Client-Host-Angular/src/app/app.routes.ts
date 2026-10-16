@@ -45,11 +45,11 @@ export const routes: Routes = [
             }).then(m => m.AppointmentsPage),
     },
   /**
-   * Ruta de patientos.
+   * Ruta de pacientes.
    *
    * @remarks
    * Renderiza el componente `PatientsPage`, encargado
-   * de mostrar y gestionar el listado de patientos.
+   * de mostrar y gestionar el listado de pacientes.
    */
     {
         path: 'patients',

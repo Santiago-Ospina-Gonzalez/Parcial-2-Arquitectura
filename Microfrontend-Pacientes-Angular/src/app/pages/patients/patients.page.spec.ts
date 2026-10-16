@@ -5,7 +5,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { PatientsService } from '../../services/patients/patients.service';
 import { PatientsTableComponent } from '../../components/patients-table/patients-table.component';
 import { of, throwError } from 'rxjs';
-import { PRODUCTS_MOCK } from '../../mocks/patients.mocks';
+import { PATIENTS_MOCK } from '../../mocks/patients.mocks';
 import { By } from '@angular/platform-browser';
 
 describe('PatientsPage', () => {
@@ -30,29 +30,29 @@ describe('PatientsPage', () => {
   });
 
   it('debería llamar a getAllPatients al iniciar', () => {
-    const spyGetAllPatients = jest.spyOn(patientsService, 'getAllPatients').mockReturnValue(of(PRODUCTS_MOCK));
+    const spyGetAllPatients = jest.spyOn(patientsService, 'getAllPatients').mockReturnValue(of(PATIENTS_MOCK));
     fixture.detectChanges();
     expect(spyGetAllPatients).toHaveBeenCalled();
   });
 
-  it('debería asignar los patientos recibidos del servicio', () => {
-    jest.spyOn(patientsService, 'getAllPatients').mockReturnValue(of(PRODUCTS_MOCK));
+  it('debería asignar los pacientes recibidos del servicio', () => {
+    jest.spyOn(patientsService, 'getAllPatients').mockReturnValue(of(PATIENTS_MOCK));
     fixture.detectChanges();
-    expect(component.patients).toEqual(PRODUCTS_MOCK);
+    expect(component.patients).toEqual(PATIENTS_MOCK);
   });
 
-  it('debería pasar los patientos al componente patients-table', () => {
-    jest.spyOn(patientsService, 'getAllPatients').mockReturnValue(of(PRODUCTS_MOCK));
+  it('debería pasar los pacientes al componente patients-table', () => {
+    jest.spyOn(patientsService, 'getAllPatients').mockReturnValue(of(PATIENTS_MOCK));
     fixture.detectChanges();
     const tableComponent = fixture.debugElement
       .query(By.directive(PatientsTableComponent))
       .componentInstance;
-    expect(tableComponent.patients).toEqual(PRODUCTS_MOCK);
+    expect(tableComponent.patients).toEqual(PATIENTS_MOCK);
   });
 
   it('debería manejar el error cuando falla getAllPatients', () => {
     component.patients = [];
-    const errorResponse = new Error('Error al cargar patientos');
+    const errorResponse = new Error('Error al cargar pacientes');
 
     jest.spyOn(console, 'error').mockImplementation(() => {});
     jest.spyOn(patientsService, 'getAllPatients').mockReturnValue(throwError(() => errorResponse));

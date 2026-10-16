@@ -4,9 +4,9 @@ import { Observable } from 'rxjs';
 import { Patient } from '../../interfaces/patients.interface';
 
 /**
- * Servicio encargado de la gestión de patientos.
+ * Servicio encargado de la gestión de pacientes.
  *
- * Proporciona métodos para obtener información de patientos
+ * Proporciona métodos para obtener información de pacientes
  * desde la API REST.
  *
  * @example
@@ -30,10 +30,10 @@ export class PatientsService {
   private httpClient = inject(HttpClient);
 
   /**
-   * Obtiene una lista de patientos desde el backend.
+   * Obtiene una lista de pacientes desde el backend.
    *
-   * @param countPatients Número de patientos a obtener.
-   * @returns Observable que emite un array de patientos.
+   * @param countPatients Número de pacientes a obtener.
+   * @returns Observable que emite un array de pacientes.
    *
    * @example
    * ```ts

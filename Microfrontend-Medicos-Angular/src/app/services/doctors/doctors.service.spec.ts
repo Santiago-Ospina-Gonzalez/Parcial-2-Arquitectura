@@ -44,7 +44,7 @@ describe('DoctorsService', () => {
         expect(médicos.length).toBe(mockDoctors.length);
       });
 
-      const req = httpMock.expectOne(`api/doctors/${countDoctors}`);
+      const req = httpMock.expectOne(`http://localhost:3001/api/doctors/${countDoctors}`);
       expect(req.request.method).toBe('GET');
 
       req.flush(mockDoctors);
@@ -62,12 +62,28 @@ describe('DoctorsService', () => {
         },
       });
 
-      const req = httpMock.expectOne(`api/doctors/${countDoctors}`);
+      const req = httpMock.expectOne(`http://localhost:3001/api/doctors/${countDoctors}`);
 
       req.flush(
         { message: 'Error interno del servidor' },
         { status: 500, statusText: 'Internal Server Error' }
       );
+    });
+
+    it('debería consultar un médico por ID', () => {
+      service.getDoctorById(1).subscribe();
+      const req = httpMock.expectOne('http://localhost:3001/api/doctors/id/1');
+      expect(req.request.method).toBe('GET');
+      req.flush(USERS_MOCK[0]);
+    });
+
+    it('debería registrar un médico', () => {
+      const doctor = { name: 'Ana', lastName: 'Pérez', age: 35, email: 'ana@example.com', engineering: 'Sistemas' as const };
+      service.registerDoctor(doctor).subscribe();
+      const req = httpMock.expectOne('http://localhost:3001/api/doctors');
+      expect(req.request.method).toBe('POST');
+      expect(req.request.body).toEqual(doctor);
+      req.flush({ id: 3, ...doctor });
     });
 
   });
