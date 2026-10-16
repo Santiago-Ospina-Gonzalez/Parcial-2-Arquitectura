@@ -44,7 +44,7 @@
 						"commonChunk": false
 					},
 					"configurations": {
-						"patiention": {
+						"production": {
 							"budgets": [
 								{
 									"type": "initial",
@@ -66,13 +66,13 @@
 							"sourceMap": true
 						}
 					},
-					"defaultConfiguration": "patiention"
+					"defaultConfiguration": "production"
 				},
 				"serve": {
 					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
-						"patiention": {
-							"buildTarget": "Client-Host-Angular:build:patiention",
+						"production": {
+							"buildTarget": "Client-Host-Angular:build:production",
 							"extraWebpackConfig": "webpack.prod.config.js"
 						},
 						"development": {

@@ -34,8 +34,7 @@ describe('App', () => {
       },
       navLinks: [
         { text: 'Médicos', url: '/doctors' },
-        { text: 'Patientos', url: '/patients' },
-        { text: '', url: '/' },
+        { text: 'Pacientes', url: '/patients' },
         { text: 'Citas', url: '/appointments' }
       ]
     });

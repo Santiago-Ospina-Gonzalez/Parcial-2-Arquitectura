@@ -1,4 +1,4 @@
-import { DoctorEngineering, Doctor } from "../../../domain/interfaces/doctor.interface";
+import { DoctorEngineering, Doctor } from "../../../domain/interfaces/user.interface";
 import { faker } from '@faker-js/faker';
 
 /**
@@ -43,15 +43,15 @@ export class DoctorsService {
       doctors.push(this.generateDoctor(i));
     }
 
-    public async getDoctorById(id: number): Promise<Doctor> {
-      return this.generateDoctor(id);
-    }
-
-    public async registerDoctor(doctor: Omit<Doctor, 'id'>): Promise<Doctor> {
-      return { id: Date.now(), ...doctor };
-    }
-
     return Promise.all(doctors);
+  }
+
+  public async getDoctorById(id: number): Promise<Doctor> {
+    return this.generateDoctor(id);
+  }
+
+  public async registerDoctor(doctor: Omit<Doctor, 'id'>): Promise<Doctor> {
+    return { id: Date.now(), ...doctor };
   }
 
   /**

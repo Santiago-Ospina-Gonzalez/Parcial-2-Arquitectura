@@ -1,16 +1,16 @@
 /**
- * Interfaz que representa un patiento.
+ * Interfaz que representa un paciente.
  *
- * Contiene la información básica necesaria para mostrar un patiento
+ * Contiene la información básica necesaria para mostrar un paciente
  * en la tabla o en cualquier componente de listado.
  *
  * @remarks
- * Cada patiento debe tener un `id` único, un `name` descriptivo,
+ * Cada paciente debe tener un `id` único, un `name` descriptivo,
  * una `category` válida y un `price` en pesos colombianos.
  *
  * @example
  * ```ts
- * const patiento: Patient = {
+ * const paciente: Patient = {
  *   id: 1,
  *   name: 'Leche entera',
  *   category: 'Lacteos',

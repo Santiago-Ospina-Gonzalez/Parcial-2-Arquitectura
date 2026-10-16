@@ -35,13 +35,13 @@ describe('DoctorsPage', () => {
     expect(spyGetAllDoctors).toHaveBeenCalled();
   });
 
-  it('debería asignar los patientos recibidos del servicio', () => {
+  it('debería asignar los pacientes recibidos del servicio', () => {
     jest.spyOn(doctorsService, 'getAllDoctors').mockReturnValue(of(USERS_MOCK));
     fixture.detectChanges();
     expect(component.doctors).toEqual(USERS_MOCK);
   });
 
-  it('debería pasar los patientos al componente doctors-table', () => {
+  it('debería pasar los pacientes al componente doctors-table', () => {
     jest.spyOn(doctorsService, 'getAllDoctors').mockReturnValue(of(USERS_MOCK));
     fixture.detectChanges();
     const tableComponent = fixture.debugElement
@@ -52,7 +52,7 @@ describe('DoctorsPage', () => {
 
   it('debería manejar el error cuando falla getAllDoctors', () => {
     component.doctors = [];
-    const errorResponse = new Error('Error al cargar patientos');
+    const errorResponse = new Error('Error al cargar pacientes');
 
     jest.spyOn(console, 'error').mockImplementation(() => {});
     jest.spyOn(doctorsService, 'getAllDoctors').mockReturnValue(throwError(() => errorResponse));

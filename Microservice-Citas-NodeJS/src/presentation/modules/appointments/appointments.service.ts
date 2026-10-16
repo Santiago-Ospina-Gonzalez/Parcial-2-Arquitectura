@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { Appointment, AppointmentStatus } from '../../../domain/interfaces/appointment.interface';
+import { Appointment, AppointmentStatus } from '../../../domain/interfaces/order.interface';
 
 /** Genera citas ficticias para pruebas y demostraciones. */
 export class AppointmentsService {
