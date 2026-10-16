@@ -23,6 +23,8 @@ export class AppointmentsRoutes {
      *       400:
      *         description: Cantidad inválida
      */
+    router.get('/id/:id', controller.getAppointmentById);
+    router.post('/', controller.scheduleAppointment);
     router.get('/:countAppointments', controller.getAllAppointments);
     return router;
   }

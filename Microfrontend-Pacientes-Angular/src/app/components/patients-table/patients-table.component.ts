@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { BadgeAtom, BadgeType } from '@brejcha13320/design-system-bootstrap';
-import { PatientCategory, Patient } from '../../interfaces/patients.interface';
+import { Patient } from '../../interfaces/patients.interface';
 
 /**
  * Componente de tabla de patientos.
@@ -26,7 +25,7 @@ import { PatientCategory, Patient } from '../../interfaces/patients.interface';
 @Component({
   selector: 'app-patients-table',
   templateUrl: './patients-table.component.html',
-  imports: [CommonModule, BadgeAtom],
+  imports: [CommonModule],
 })
 export class PatientsTableComponent {
   /**
@@ -50,10 +49,4 @@ export class PatientsTableComponent {
    * Esto permite que en la tabla cada patiento tenga un badge visual que indique su categoría
    * de forma clara para el usuario.
    */
-  categoryMap: Record<PatientCategory, BadgeType> = {
-    'Carnes' : 'danger',
-    'Frutas': 'warning',
-    'Lacteos': 'primary',
-    'Verduras': 'success',
-  }
 }

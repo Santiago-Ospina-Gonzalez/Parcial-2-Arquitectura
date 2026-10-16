@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { PatientsTableComponent } from '../../components/patients-table/patients-table.component';
 import { Patient } from '../../interfaces/patients.interface';
-import { PatientsService } from '../../services/patients/patients.service';
+import { GetAllPatientsUseCase } from '../../core/application/usecases/get-all-patients.usecase';
 import { State } from '../../interfaces/state.interface';
 import { AlertComponent } from '../../components/alert/alert.component';
 
@@ -18,7 +18,7 @@ import { AlertComponent } from '../../components/alert/alert.component';
  *
  */
 @Component({
-  selector: 'app-producs',
+  selector: 'app-patients',
   templateUrl: `./patients.page.html`,
   imports: [PatientsTableComponent, AlertComponent]
 })
@@ -41,7 +41,7 @@ export class PatientsPage {
    * @remarks
    * Se inyecta utilizando la función `inject()` de Angular.
    */
-  private patientsService = inject(PatientsService);
+  private getAllPatients = inject(GetAllPatientsUseCase);
 
   /**
    * Inicializa el componente y carga los patientos.
@@ -51,7 +51,7 @@ export class PatientsPage {
    */
   ngOnInit(): void {
     this.state = 'loading';
-    this.patientsService.getAllPatients(10).subscribe({
+    this.getAllPatients.execute().subscribe({
       next: (patients) => {
         this.patients = patients;
         this.state = 'success';

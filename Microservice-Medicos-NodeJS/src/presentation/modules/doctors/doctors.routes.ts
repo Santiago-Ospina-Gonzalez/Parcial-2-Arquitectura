@@ -35,6 +35,8 @@ export class DoctorsRoutes {
      *       400:
      *         description: Parámetro inválido
      */
+    router.get("/id/:id", controller.getDoctorById);
+    router.post("/", controller.registerDoctor);
     router.get("/:countDoctors", controller.getAllDoctors);
 
     return router;

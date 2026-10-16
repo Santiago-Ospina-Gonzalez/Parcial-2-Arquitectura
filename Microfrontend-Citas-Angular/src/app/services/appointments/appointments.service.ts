@@ -8,4 +8,12 @@ export class AppointmentsService {
   getAllAppointments(countAppointments: number): Observable<Appointment[]> {
     return this.httpClient.get<Appointment[]>(`http://localhost:3003/api/appointments/${countAppointments}`);
   }
+
+  getAppointmentById(id: number): Observable<Appointment> {
+    return this.httpClient.get<Appointment>(`http://localhost:3003/api/appointments/id/${id}`);
+  }
+
+  scheduleAppointment(appointment: Omit<Appointment, 'id'>): Observable<Appointment> {
+    return this.httpClient.post<Appointment>('http://localhost:3003/api/appointments', appointment);
+  }
 }

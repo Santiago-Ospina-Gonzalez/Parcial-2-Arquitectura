@@ -14,6 +14,14 @@ export class AppointmentsService {
     return Array.from({ length: countAppointments }, (_, index) => this.generateAppointment(index + 1));
   }
 
+  public async getAppointmentById(id: number): Promise<Appointment> {
+    return this.generateAppointment(id);
+  }
+
+  public async scheduleAppointment(appointment: Omit<Appointment, 'id'>): Promise<Appointment> {
+    return { id: Date.now(), ...appointment };
+  }
+
   private generateAppointment(id: number): Appointment {
     return {
       id,

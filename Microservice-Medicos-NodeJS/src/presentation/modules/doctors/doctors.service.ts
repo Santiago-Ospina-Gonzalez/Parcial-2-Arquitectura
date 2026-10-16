@@ -43,6 +43,14 @@ export class DoctorsService {
       doctors.push(this.generateDoctor(i));
     }
 
+    public async getDoctorById(id: number): Promise<Doctor> {
+      return this.generateDoctor(id);
+    }
+
+    public async registerDoctor(doctor: Omit<Doctor, 'id'>): Promise<Doctor> {
+      return { id: Date.now(), ...doctor };
+    }
+
     return Promise.all(doctors);
   }
 

@@ -42,7 +42,15 @@ export class PatientsService {
    * });
    * ```
    */
-  getAllPatients(countPatients: number): Observable<Patient[]> {
-    return this.httpClient.get<Patient[]>(`http://localhost:3002/api/patients/${countPatients}`);
+  getAllPatients(): Observable<Patient[]> {
+    return this.httpClient.get<Patient[]>('http://localhost:3002/api/pacientes');
+  }
+
+  getPatientById(id: number): Observable<Patient> {
+    return this.httpClient.get<Patient>(`http://localhost:3002/api/pacientes/${id}`);
+  }
+
+  registerPatient(patient: Omit<Patient, 'id'>): Observable<Patient> {
+    return this.httpClient.post<Patient>('http://localhost:3002/api/pacientes', patient);
   }
 }

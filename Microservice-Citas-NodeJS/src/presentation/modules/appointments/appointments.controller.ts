@@ -17,4 +17,16 @@ export class AppointmentsController {
       .then((appointments) => res.status(200).json(appointments))
       .catch(() => res.status(500).json({ error: 'Internal Server error' }));
   };
+
+  getAppointmentById = (req: Request, res: Response): void => {
+    this.appointmentsService.getAppointmentById(Number(req.params.id))
+      .then((appointment) => res.status(200).json(appointment))
+      .catch(() => res.status(500).json({ error: 'Internal Server error' }));
+  };
+
+  scheduleAppointment = (req: Request, res: Response): void => {
+    this.appointmentsService.scheduleAppointment(req.body)
+      .then((appointment) => res.status(201).json(appointment))
+      .catch(() => res.status(500).json({ error: 'Internal Server error' }));
+  };
 }

@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { DoctorsTableComponent } from '../../components/doctors-table/doctors-table.component';
 import { Doctor } from '../../interfaces/doctors.interface';
-import { DoctorsService } from '../../services/doctors/doctors.service';
+import { GetAllDoctorsUseCase } from '../../core/application/usecases/get-all-doctors.usecase';
 import { State } from '../../interfaces/state.interface';
 import { AlertComponent } from '../../components/alert/alert.component';
 
@@ -40,7 +40,7 @@ export class DoctorsPage {
    * @remarks
    * Se inyecta utilizando la función `inject()` de Angular.
    */
-  private doctorsService = inject(DoctorsService);
+  private getAllDoctors = inject(GetAllDoctorsUseCase);
 
   /**
    * Inicializa el componente y carga los médicos.
@@ -50,7 +50,7 @@ export class DoctorsPage {
    */
   ngOnInit(): void {
     this.state = 'loading';
-    this.doctorsService.getAllDoctors(10).subscribe({
+    this.getAllDoctors.execute().subscribe({
       next: (doctors) => {
         this.doctors = doctors;
         this.state = 'success';

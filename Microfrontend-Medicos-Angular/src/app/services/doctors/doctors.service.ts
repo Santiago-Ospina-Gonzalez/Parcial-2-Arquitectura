@@ -45,4 +45,12 @@ export class DoctorsService {
   getAllDoctors(countDoctors: number): Observable<Doctor[]> {
     return this.httpClient.get<Doctor[]>(`http://localhost:3001/api/doctors/${countDoctors}`);
   }
+
+  getDoctorById(id: number): Observable<Doctor> {
+    return this.httpClient.get<Doctor>(`http://localhost:3001/api/doctors/id/${id}`);
+  }
+
+  registerDoctor(doctor: Omit<Doctor, 'id'>): Observable<Doctor> {
+    return this.httpClient.post<Doctor>('http://localhost:3001/api/doctors', doctor);
+  }
 }

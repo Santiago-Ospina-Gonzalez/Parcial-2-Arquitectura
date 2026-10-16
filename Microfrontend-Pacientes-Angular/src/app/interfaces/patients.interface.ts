@@ -19,34 +19,8 @@
  * ```
  */
 export interface Patient {
-    /** Identificador único del patiento */
-    id: number;
-
-    /** Nombre o descripción del patiento */
-    name: string;
-
-    /** Categoría del patiento */
-    category: PatientCategory;
-
-    /** Precio del patiento en pesos */
-    price: number;
+  id: number;
+  name: string;
+  document: string;
+  phone: string;
 }
-
-/**
- * Tipo de categoría de patiento.
- *
- * @remarks
- * Este tipo restringe las categorías a los valores predefinidos:
- * - 'Lacteos'
- * - 'Carnes'
- * - 'Frutas'
- * - 'Verduras'
- *
- * Se utiliza principalmente para mapear badges de colores en la UI.
- *
- * @example
- * ```ts
- * const categoria: PatientCategory = 'Frutas';
- * ```
- */
-export type PatientCategory = 'Lacteos' | 'Carnes' | 'Frutas' | 'Verduras';
