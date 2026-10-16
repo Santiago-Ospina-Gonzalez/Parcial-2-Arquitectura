@@ -10,4 +10,9 @@ describe('AppointmentsPage', () => { let fixture: ComponentFixture<AppointmentsP
  it('crea el componente', () => expect(component).toBeTruthy());
  it('carga citas exitosamente', () => { jest.spyOn(service, 'getAllAppointments').mockReturnValue(of(mockAppointments)); fixture.detectChanges(); expect(component.appointments).toEqual(mockAppointments); expect(component.state).toBe('success'); });
  it('maneja errores', () => { jest.spyOn(service, 'getAllAppointments').mockReturnValue(throwError(() => new Error('fail'))); fixture.detectChanges(); expect(component.state).toBe('error'); });
+ it('consulta una cita por ID', () => { jest.spyOn(service, 'getAppointmentById').mockReturnValue(of(mockAppointments[0])); component.appointmentId = '1'; component.findAppointment(); expect(component.actionMessage).toContain('Ana Pérez'); });
+ it('rechaza un ID de cita inválido', () => { component.appointmentId = '0'; component.findAppointment(); expect(component.actionMessage).toBe('Ingrese un ID de cita válido.'); });
+ it('maneja error al consultar una cita', () => { jest.spyOn(service, 'getAppointmentById').mockReturnValue(throwError(() => new Error('fail'))); component.appointmentId = '1'; component.findAppointment(); expect(component.actionMessage).toBe('No fue posible consultar la cita.'); });
+ it('agenda una cita y actualiza la lista', () => { jest.spyOn(service, 'scheduleAppointment').mockReturnValue(of(mockAppointments[0])); component.customerName = 'Ana Pérez'; component.saveAppointment(); expect(component.appointments).toEqual(mockAppointments); expect(component.actionMessage).toContain('Ana Pérez'); });
+ it('maneja error al agendar una cita', () => { jest.spyOn(service, 'scheduleAppointment').mockReturnValue(throwError(() => new Error('fail'))); component.saveAppointment(); expect(component.actionMessage).toBe('No fue posible agendar la cita.'); });
 });

@@ -1,1 +1,11 @@
-@switch (state) { @case ('loading') { <div class="alert alert-info m-4">Cargando citas...</div> } @case ('error') { <div class="alert alert-danger m-4">No fue posible cargar las citas.</div> } @case ('success') { <app-appointments-table [appointments]="appointments" /> } }
+@switch (state) { @case ('loading') { <div class="alert alert-info m-4">Cargando citas...</div> } @case ('error') { <div class="alert alert-danger m-4">No fue posible cargar las citas.</div> } @case ('success') {
+<section class="container py-3">
+    <h2>Consultar cita</h2>
+    <input class="form-control mb-2" type="number" placeholder="ID de la cita" [value]="appointmentId" (input)="appointmentId = $any($event.target).value">
+    <button class="btn btn-primary mb-3" type="button" (click)="findAppointment()">Consultar por ID</button>
+    <h2>Agendar cita</h2>
+    <input class="form-control mb-2" placeholder="Nombre del paciente" [value]="customerName" (input)="customerName = $any($event.target).value">
+    <button class="btn btn-success mb-3" type="button" (click)="saveAppointment()">Agendar cita</button>
+    @if (actionMessage) { <p class="alert alert-secondary">{{ actionMessage }}</p> }
+</section>
+<app-appointments-table [appointments]="appointments" /> } }

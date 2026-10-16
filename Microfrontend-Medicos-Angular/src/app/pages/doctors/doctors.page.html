@@ -9,6 +9,19 @@
     }
 
     @case('success'){
+        <section class="container py-3">
+            <h2>Consultar médico</h2>
+            <input class="form-control mb-2" type="number" placeholder="ID del médico" [value]="doctorId" (input)="doctorId = $any($event.target).value">
+            <button class="btn btn-primary mb-3" type="button" (click)="findDoctor()">Consultar por ID</button>
+            <h2>Registrar médico</h2>
+            <div class="row g-2 mb-3">
+                <div class="col-md-4"><input class="form-control" placeholder="Nombre" [value]="doctorName" (input)="doctorName = $any($event.target).value"></div>
+                <div class="col-md-4"><input class="form-control" placeholder="Apellido" [value]="doctorLastName" (input)="doctorLastName = $any($event.target).value"></div>
+                <div class="col-md-4"><input class="form-control" placeholder="Correo" [value]="doctorEmail" (input)="doctorEmail = $any($event.target).value"></div>
+            </div>
+            <button class="btn btn-success mb-3" type="button" (click)="saveDoctor()">Registrar médico</button>
+            @if (actionMessage) { <p class="alert alert-secondary">{{ actionMessage }}</p> }
+        </section>
         <app-doctors-table [doctors]="doctors" ></app-doctors-table>
     }
 
