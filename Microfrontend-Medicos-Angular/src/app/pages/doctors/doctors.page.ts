@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { DoctorsTableComponent } from '../../components/doctors-table/doctors-table.component';
 import { Doctor } from '../../interfaces/doctors.interface';
 import { GetAllDoctorsUseCase } from '../../core/application/usecases/get-all-doctors.usecase';
+import { GetDoctorByIdUseCase } from '../../core/application/usecases/get-doctor-by-id.usecase';
+import { RegisterDoctorUseCase } from '../../core/application/usecases/register-doctor.usecase';
 import { State } from '../../interfaces/state.interface';
 import { AlertComponent } from '../../components/alert/alert.component';
 
@@ -41,6 +43,14 @@ export class DoctorsPage {
    * Se inyecta utilizando la función `inject()` de Angular.
    */
   private getAllDoctors = inject(GetAllDoctorsUseCase);
+  private getDoctorById = inject(GetDoctorByIdUseCase);
+  private registerDoctor = inject(RegisterDoctorUseCase);
+  doctorId = '';
+  doctorName = '';
+  doctorLastName = '';
+  doctorEmail = '';
+  selectedDoctor: Doctor | null = null;
+  actionMessage = '';
 
   /**
    * Inicializa el componente y carga los médicos.
@@ -60,5 +70,36 @@ export class DoctorsPage {
         this.state = 'error';
       },
     })
+  }
+
+  findDoctor(): void {
+    const id = Number(this.doctorId);
+    if (!Number.isInteger(id) || id < 1) {
+      this.actionMessage = 'Ingrese un ID de médico válido.';
+      return;
+    }
+    this.getDoctorById.execute(id).subscribe({
+      next: (doctor) => {
+        this.selectedDoctor = doctor;
+        this.actionMessage = `Médico encontrado: ${doctor.name} ${doctor.lastName}`;
+      },
+      error: () => this.actionMessage = 'No fue posible consultar el médico.',
+    });
+  }
+
+  saveDoctor(): void {
+    this.registerDoctor.execute({
+      name: this.doctorName,
+      lastName: this.doctorLastName,
+      age: 30,
+      email: this.doctorEmail,
+      engineering: 'Sistemas',
+    }).subscribe({
+      next: (doctor) => {
+        this.doctors = [...this.doctors, doctor];
+        this.actionMessage = `Médico registrado: ${doctor.name}`;
+      },
+      error: () => this.actionMessage = 'No fue posible registrar el médico.',
+    });
   }
 }
