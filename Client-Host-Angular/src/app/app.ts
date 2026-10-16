@@ -43,8 +43,8 @@ export class App {
    *     size: 2
    *   },
    *   navLinks: [
-   *     { text: 'Usuarios', url: '/users' },
-   *     { text: 'Productos', url: '/products' }
+   *     { text: 'Médicos', url: '/doctors' },
+   *     { text: 'Patientos', url: '/patients' }
    *   ]
    * }
    * ```
@@ -56,10 +56,10 @@ export class App {
       size: 2
     },
     navLinks: [
-      { text: 'Usuarios', url: '/users' },
-      { text: 'Productos', url: '/products' },
-      { text: 'Canciones', url: '/songs' },
-      { text: 'Órdenes', url: '/orders' }
+      { text: 'Médicos', url: '/doctors' },
+      { text: 'Patientos', url: '/patients' },
+      { text: '', url: '/' },
+      { text: 'Citas', url: '/appointments' }
     ]
   };
 }

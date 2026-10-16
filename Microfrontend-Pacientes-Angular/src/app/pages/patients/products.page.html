@@ -1,0 +1,15 @@
+@switch(state){
+
+    @case('loading'){
+        <app-alert alertState="loading" text="Cargando Patientos..." ></app-alert>
+    }
+
+    @case('error'){
+        <app-alert alertState="error" text="Error al Cargar los Patientos" ></app-alert>
+    }
+
+    @case('success'){
+        <app-patients-table [patients]="patients" ></app-patients-table>
+    }
+
+}

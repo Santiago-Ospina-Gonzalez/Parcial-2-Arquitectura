@@ -1,0 +1,13 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { of, throwError } from 'rxjs';
+import { AppointmentsPage } from './appointments.page';
+import { AppointmentsService } from '../../services/appointments/appointments.service';
+import { Appointment } from '../../interfaces/appointments.interface';
+const mockAppointments: Appointment[] = [{ id: 1, customerName: 'Ana Pérez', total: 25, status: 'Pendiente', createdAt: '2026-01-01T00:00:00.000Z' }];
+describe('AppointmentsPage', () => { let fixture: ComponentFixture<AppointmentsPage>; let component: AppointmentsPage; let service: AppointmentsService;
+ beforeEach(async () => { await TestBed.configureTestingModule({ imports: [AppointmentsPage], providers: [provideHttpClient()] }).compileComponents(); fixture = TestBed.createComponent(AppointmentsPage); component = fixture.componentInstance; service = TestBed.inject(AppointmentsService); });
+ it('crea el componente', () => expect(component).toBeTruthy());
+ it('carga citas exitosamente', () => { jest.spyOn(service, 'getAllAppointments').mockReturnValue(of(mockAppointments)); fixture.detectChanges(); expect(component.appointments).toEqual(mockAppointments); expect(component.state).toBe('success'); });
+ it('maneja errores', () => { jest.spyOn(service, 'getAllAppointments').mockReturnValue(throwError(() => new Error('fail'))); fixture.detectChanges(); expect(component.state).toBe('error'); });
+});

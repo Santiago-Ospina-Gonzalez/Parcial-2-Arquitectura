@@ -1,0 +1,20 @@
+import { Doctor } from "../interfaces/doctors.interface";
+
+export const USERS_MOCK: Doctor[] = [
+    {
+        id: 1,
+        name: 'Carlos',
+        lastName: 'Ramírez',
+        age: 22,
+        email: 'carlos.ramirez@example.com',
+        engineering: 'Sistemas',
+    },
+    {
+        id: 2,
+        name: 'Ana',
+        lastName: 'Gómez',
+        age: 24,
+        email: 'ana.gomez@example.com',
+        engineering: 'Industrial',
+    }
+];

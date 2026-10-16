@@ -13,62 +13,62 @@ import { loadRemoteModule } from '@angular-architects/module-federation';
  * - Rutas de navegación principales
  * - Redirección por defecto para rutas no existentes
  *
- * @see {@link UsersPage}
- * @see {@link ProductsPage}
+ * @see {@link DoctorsPage}
+ * @see {@link PatientsPage}
  */
 export const routes: Routes = [
 
   /**
-   * Ruta de usuarios.
+   * Ruta de médicos.
    *
    * @remarks
-   * Renderiza el componente `UsersPage`, encargado
-   * de mostrar y gestionar el listado de usuarios.
+   * Renderiza el componente `DoctorsPage`, encargado
+   * de mostrar y gestionar el listado de médicos.
    */
   {
-        path: 'users',
+        path: 'doctors',
         loadComponent: () =>
             loadRemoteModule({
                 type: 'module',
                 remoteEntry: 'http://localhost:4201/remoteEntry.js',
-                exposedModule: './UsersPage',
-        }).then(m => m.UsersPage),
+                exposedModule: './DoctorsPage',
+        }).then(m => m.DoctorsPage),
     },
     
     {
-        path: 'songs',
+        path: '',
         loadComponent: () =>
             loadRemoteModule({
                 type: 'module',
                 remoteEntry: 'http://localhost:4204/remoteEntry.js',
-                exposedModule: './SongsPage',
-            }).then(m => m.SongsPage),
+                exposedModule: './Page',
+            }).then(m => m.Page),
     },
 
     {
-        path: 'orders',
+        path: 'appointments',
         loadComponent: () =>
             loadRemoteModule({
                 type: 'module',
                 remoteEntry: 'http://localhost:4203/remoteEntry.js',
-                exposedModule: './OrdersPage',
-            }).then(m => m.OrdersPage),
+                exposedModule: './AppointmentsPage',
+            }).then(m => m.AppointmentsPage),
     },
   /**
-   * Ruta de productos.
+   * Ruta de patientos.
    *
    * @remarks
-   * Renderiza el componente `ProductsPage`, encargado
-   * de mostrar y gestionar el listado de productos.
+   * Renderiza el componente `PatientsPage`, encargado
+   * de mostrar y gestionar el listado de patientos.
    */
     {
-        path: 'products',
+        path: 'patients',
         loadComponent: () =>
             loadRemoteModule({
                 type: 'module',
                 remoteEntry: 'http://localhost:4202/remoteEntry.js',
-                exposedModule: './ProductsPage',
-        }).then(m => m.ProductsPage),
+                exposedModule: './PatientsPage',
+        }).then(m => m.PatientsPage),
     },
 
   /**
@@ -76,7 +76,7 @@ export const routes: Routes = [
    *
    * @remarks
    * Captura cualquier ruta no definida y redirige
-   * automáticamente a la ruta de usuarios.
+   * automáticamente a la ruta de médicos.
    */
-  { path: '**', redirectTo: 'users' },
+  { path: '**', redirectTo: 'doctors' },
 ];

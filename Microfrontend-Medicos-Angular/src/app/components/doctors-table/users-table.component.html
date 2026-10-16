@@ -1,0 +1,29 @@
+<table class="table table-striped bappointment">
+	<thead>
+		<tr>
+			<th scope="col">Id</th>
+			<th scope="col">Nombre</th>
+			<th scope="col">Apellido</th>
+			<th scope="col">Edad</th>
+			<th scope="col">Email</th>
+			<th scope="col">Ingenieria</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (doctor of doctors; track doctor) {
+			<tr>
+				<th scope="row">{{ doctor.id }}</th>
+				<td>{{ doctor.name }}</td>
+				<td>{{ doctor.lastName }}</td>
+				<td>{{ doctor.age }}</td>
+				<td>{{ doctor.email }}</td>
+				<td>
+					<dsb-badge-atom 
+						[text]="doctor.engineering"
+						[type]="engineeringMap[doctor.engineering]" >
+					</dsb-badge-atom>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

@@ -20,64 +20,64 @@ Puedes verificar Angular CLI en consola con: ```ng version```
 ### 1️⃣ Instalar Dependencias
 
 - Ubícate en la raíz del proyecto de Client-Host-Angular y ejecuta el comando: ```npm i```
-- Ubícate en la raíz del proyecto de Microfrontend-Users-Angular y ejecuta el comando: ```npm i```
-- Ubícate en la raíz del proyecto de Microfrontend-Products-Angular y ejecuta el comando: ```npm i```
-- Ubícate en la raíz del proyecto de Microfrontend-Songs-Angular y ejecuta el comando: ```npm i```
-- Ubícate en la raíz del proyecto de Microfrontend-Orders-Angular y ejecuta el comando: ```npm i```
-- Ubícate en la raíz del proyecto de Microservice-Users-NodeJS y ejecuta el comando: ```npm i```
-- Ubícate en la raíz del proyecto de Microservice-Products-NodeJS y ejecuta el comando: ```npm i```
-- Ubícate en la raíz del proyecto de Microservice-Songs-NodeJS y ejecuta el comando: ```npm i```
-- Ubícate en la raíz del proyecto de Microservice-Orders-NodeJS y ejecuta el comando: ```npm i```
+- Ubícate en la raíz del proyecto de Microfrontend-Medicos-Angular y ejecuta el comando: ```npm i```
+- Ubícate en la raíz del proyecto de Microfrontend-Pacientes-Angular y ejecuta el comando: ```npm i```
+- Ubícate en la raíz del proyecto de Microfrontend--Angular y ejecuta el comando: ```npm i```
+- Ubícate en la raíz del proyecto de Microfrontend-Citas-Angular y ejecuta el comando: ```npm i```
+- Ubícate en la raíz del proyecto de Microservice-Medicos-NodeJS y ejecuta el comando: ```npm i```
+- Ubícate en la raíz del proyecto de Microservice-Pacientes-SpringBoot y ejecuta el comando: ```npm i```
+- Ubícate en la raíz del proyecto de Microservice--NodeJS y ejecuta el comando: ```npm i```
+- Ubícate en la raíz del proyecto de Microservice-Citas-NodeJS y ejecuta el comando: ```npm i```
 
 
 ### 2️⃣ Ejecutar los Proyectos
 
-- Ubícate en la raíz del proyecto de Microservice-Users-NodeJS y ejecuta el comando: ```npm run start```
-- Ubícate en la raíz del proyecto de Microservice-Products-NodeJS y ejecuta el comando: ```npm run start```
-- Ubícate en la raíz del proyecto de Microservice-Songs-NodeJS y ejecuta el comando: ```npm run start```
-- Ubícate en la raíz del proyecto de Microservice-Orders-NodeJS y ejecuta el comando: ```npm run start```
-- Ubícate en la raíz del proyecto de Microfrontend-Users-Angular y ejecuta el comando: ```npm run start```
-- Ubícate en la raíz del proyecto de Microfrontend-Products-Angular y ejecuta el comando: ```npm run start```
-- Ubícate en la raíz del proyecto de Microfrontend-Songs-Angular y ejecuta el comando: ```npm run start```
-- Ubícate en la raíz del proyecto de Microfrontend-Orders-Angular y ejecuta el comando: ```npm run start```
+- Ubícate en la raíz del proyecto de Microservice-Medicos-NodeJS y ejecuta el comando: ```npm run start```
+- Ubícate en la raíz del proyecto de Microservice-Pacientes-SpringBoot y ejecuta el comando: ```npm run start```
+- Ubícate en la raíz del proyecto de Microservice--NodeJS y ejecuta el comando: ```npm run start```
+- Ubícate en la raíz del proyecto de Microservice-Citas-NodeJS y ejecuta el comando: ```npm run start```
+- Ubícate en la raíz del proyecto de Microfrontend-Medicos-Angular y ejecuta el comando: ```npm run start```
+- Ubícate en la raíz del proyecto de Microfrontend-Pacientes-Angular y ejecuta el comando: ```npm run start```
+- Ubícate en la raíz del proyecto de Microfrontend--Angular y ejecuta el comando: ```npm run start```
+- Ubícate en la raíz del proyecto de Microfrontend-Citas-Angular y ejecuta el comando: ```npm run start```
 - Ubícate en la raíz del proyecto de Client-Host-Angular y ejecuta el comando: ```npm run start```
 
 
 ### 3️⃣ Verificar Funcionamiento de Proyectos
 
-#### Microservice-Users-NodeJS
+#### Microservice-Medicos-NodeJS
 - Corriendo en: ```http://localhost:3001```
 - Swagger API Docs: ```http://localhost:3001/api/docs```
-- API Users: ```http://localhost:3001/api/users/{countUsers}```
+- API Doctors: ```http://localhost:3001/api/doctors/{countDoctors}```
 
-#### Microservice-Products-NodeJS
+#### Microservice-Pacientes-SpringBoot
 - Corriendo en: ```http://localhost:3002```
 - Swagger API Docs: ```http://localhost:3002/api/docs```
-- API Products: ```http://localhost:3002/api/users/{countProducts}```
+- API Patients: ```http://localhost:3002/api/doctors/{countPatients}```
 
-#### Microfrontend-Users-Angular
+#### Microfrontend-Medicos-Angular
 - Corriendo en: ```http://localhost:4201```
 - RemoteEntry: ```http://localhost:4201/remoteEntry.js```
 
-#### Microfrontend-Products-Angular
+#### Microfrontend-Pacientes-Angular
 - Corriendo en: ```http://localhost:4202```
 - RemoteEntry: ```http://localhost:4202/remoteEntry.js```
 
-#### Microservice-Songs-NodeJS
+#### Microservice--NodeJS
 - Corriendo en: ```http://localhost:3004```
 - Swagger API Docs: ```http://localhost:3004/api/docs```
-- API Songs: ```http://localhost:3004/api/songs/{countSongs}```
+- API : ```http://localhost:3004/api//{count}```
 
-#### Microfrontend-Songs-Angular
+#### Microfrontend--Angular
 - Corriendo en: ```http://localhost:4204```
 - RemoteEntry: ```http://localhost:4204/remoteEntry.js```
 
-#### Microservice-Orders-NodeJS
+#### Microservice-Citas-NodeJS
 - Corriendo en: ```http://localhost:3003```
 - Swagger API Docs: ```http://localhost:3003/api/docs```
-- API Orders: ```http://localhost:3003/api/orders/{countOrders}```
+- API Appointments: ```http://localhost:3003/api/appointments/{countAppointments}```
 
-#### Microfrontend-Orders-Angular
+#### Microfrontend-Citas-Angular
 - Corriendo en: ```http://localhost:4203```
 - RemoteEntry: ```http://localhost:4203/remoteEntry.js```
 
