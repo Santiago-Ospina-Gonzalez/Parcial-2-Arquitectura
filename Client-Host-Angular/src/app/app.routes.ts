@@ -36,16 +36,6 @@ export const routes: Routes = [
     },
     
     {
-        path: '',
-        loadComponent: () =>
-            loadRemoteModule({
-                type: 'module',
-                remoteEntry: 'http://localhost:4204/remoteEntry.js',
-                exposedModule: './Page',
-            }).then(m => m.Page),
-    },
-
-    {
         path: 'appointments',
         loadComponent: () =>
             loadRemoteModule({
