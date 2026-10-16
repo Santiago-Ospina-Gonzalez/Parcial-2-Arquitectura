@@ -1,0 +1,20 @@
+<table class="table table-striped bappointment">
+	<thead>
+		<tr>
+			<th scope="col">Id</th>
+			<th scope="col">Nombre</th>
+			<th scope="col">Documento</th>
+			<th scope="col">Teléfono</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (patient of patients; track patient) {
+			<tr>
+				<th scope="row">{{ patient.id }}</th>
+				<td>{{ patient.name }}</td>
+				<td>{{ patient.document }}</td>
+				<td>{{ patient.phone }}</td>
+			</tr>
+		}
+	</tbody>
+</table>
